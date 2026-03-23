@@ -29,7 +29,6 @@
         <div class="options">
             <div class="card" onclick="selectAnswer(0)" id="option0"></div>
             <div class="card" onclick="selectAnswer(1)" id="option1"></div>
-            <div class="card" onclick="selectAnswer(2)" id="option2"></div>
         </div>
 
         <!-- Score -->
@@ -37,10 +36,9 @@
             Score: <span id="score">0</span>
         </div>
 
-
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
