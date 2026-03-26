@@ -1,193 +1,36 @@
-console.log("Game started");
-
-// SOUND SETUP
-const correctSound = new Audio("correct.mp3");
-const wrongSound = new Audio("wrong.mp3");
-const timeoutSound = new Audio("timeout.mp3");
-
-// QUESTIONS
-
-let questions = [{
-        level: "Easy",
-        question: "Which website is REAL?",
-        options: [
-            "maybank-secure-login.com",
-            "maybank2u.com.my",
-            "maybank-login-safe.net"
-        ],
-        correct: 1,
-        explanation: "Only 'maybank2u.com.my' is the official domain."
-    },
-    {
-        level: "Easy",
-        question: "Which website is REAL?",
-        options: [
-            "lazada-deals.net",
-            "lazada.com.my",
-            "lazada-sale.my"
-        ],
-        correct: 1,
-        explanation: "Official Lazada uses 'lazada.com.my' only."
-    },
-    {
-        level: "Medium",
-        question: "Which website is REAL?",
-        options: [
-            "cimbclicks-secure.com",
-            "cimbclicks.com.my",
-            "cimbclick-login.net"
-        ],
-        correct: 1,
-        explanation: "Official CIMB is 'cimbclicks.com.my'."
-    },
-    {
-        level: "Medium",
-        question: "Which website is REAL?",
-        options: [
-            "grab-pay-secure.com",
-            "grab.com/my",
-            "grabwallet-login.net"
-        ],
-        correct: 1,
-        explanation: "Grab official domain is 'grab.com'. Others are fake."
-    },
-    {
-        level: "Medium",
-        question: "Which website is REAL?",
-        options: [
-            "bankislam-secure.net",
-            "bankislam.com.my",
-            "bankislam-login.my"
-        ],
-        correct: 1,
-        explanation: "Only 'bankislam.com.my' is legitimate."
-    },
-    {
-        level: "Hard",
-        question: "Which website is REAL?",
-        options: [
-            "tngdigital.com.my.secure-login.net",
-            "tngdigital.com.my",
-            "tngdigital-login.my"
-        ],
-        correct: 1,
-        explanation: "Only exact domain is safe. Extra words = scam."
-    },
-    {
-        level: "Hard",
-        question: "Which website is REAL?",
-        options: [
-            "shopee.com.login-verify.net",
-            "shopee.com.my",
-            "shopee-secure.com"
-        ],
-        correct: 1,
-        explanation: "Official Shopee MY domain is 'shopee.com.my'."
-    }
+const data = [
+  {title:"Phone Scams",desc:"Imposters pretend to be authorities demanding payment.",img:"https://cdn-icons-png.flaticon.com/512/1001/1001371.png"},
+  {title:"Malware Scams",desc:"Downloading unsafe apps infects your device.",img:"https://cdn-icons-png.flaticon.com/512/4245/4245906.png",badge:".APK"},
+  {title:"Job Scams",desc:"Offers that are too good to be true.",img:"https://cdn-icons-png.flaticon.com/512/3135/3135715.png",badge:"JOB OFFER"},
+  {title:"Phishing Scams",desc:"Fake links steal your personal data.",img:"https://cdn-icons-png.flaticon.com/512/565/565547.png"},
+  {title:"Mule Account Scams",desc:"Using your bank account for illegal transfers.",img:"https://cdn-icons-png.flaticon.com/512/3062/3062634.png"},
+  {title:"e-Commerce Scams",desc:"Items never arrive after payment.",img:"https://cdn-icons-png.flaticon.com/512/891/891462.png"},
+  {title:"Investment Scams",desc:"Fake schemes promising high returns.",img:"https://cdn-icons-png.flaticon.com/512/2920/2920263.png"},
+  {title:"Cash Reward Scams",desc:"Fake rewards for personal info.",img:"https://cdn-icons-png.flaticon.com/512/2331/2331970.png",badge:"CASH BACK"},
+  {title:"Loan Scams",desc:"Upfront payments for fake loans.",img:"https://cdn-icons-png.flaticon.com/512/3135/3135706.png"},
+  {title:"Love Scam",desc:"Fake relationships to extract money.",img:"https://cdn-icons-png.flaticon.com/512/1077/1077035.png"},
+  {title:"QR Scams",desc:"Malicious QR codes steal data.",img:"https://cdn-icons-png.flaticon.com/512/159/159469.png",badge:"SCAN"}
 ];
 
+const grid = document.getElementById("grid");
 
-// STATE
-let current = 0;
-let score = 0;
-let timeLeft = 5;
-let timerInterval;
+data.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "card";
 
-// LOAD QUESTION
-function loadQuestion() {
-    if (current >= questions.length) {
-        endGame();
-        return;
-    }
-
-    let q = questions[current];
-
-    document.getElementById("question").innerText =
-        `[${q.level}] ${q.question}`;
-
-    document.getElementById("option0").innerText = q.options[0];
-    document.getElementById("option1").innerText = q.options[1];
-    document.getElementById("option2").innerText = q.options[2];
-
-    document.getElementById("message").innerText = "";
-
-    startTimer();
-}
-
-// TIMER
-function startTimer() {
-    clearInterval(timerInterval);
-
-    timeLeft = 5;
-    let timerBar = document.getElementById("timer");
-
-    timerInterval = setInterval(() => {
-        timeLeft -= 0.1;
-        timerBar.style.width = (timeLeft / 5) * 100 + "%";
-
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            timeoutSound.play();
-            showExplanation("⏰ Time’s up!");
-        }
-    }, 100);
-}
-
-// ANSWER
-function selectAnswer(index) {
-    clearInterval(timerInterval);
-    let q = questions[current];
-
-    if (index === q.correct) {
-        score++;
-        correctSound.play();
-        showExplanation("✅ Correct! " + q.explanation);
-    } else {
-        wrongSound.play();
-        showExplanation("❌ Wrong! " + q.explanation);
-    }
-
-    document.getElementById("score").innerText = score;
-}
-
-// EXPLANATION
-function showExplanation(text) {
-    document.getElementById("message").innerText = text;
-
-    setTimeout(() => {
-        nextQuestion();
-    }, 2000);
-}
-
-// NEXT
-function nextQuestion() {
-    current++;
-    loadQuestion();
-}
-
-// END GAME + REWARD SCREEN
-function endGame() {
-    let resultText = "";
-
-    if (score === questions.length) {
-        resultText = "🛡️ Scam Master!";
-    } else if (score >= 4) {
-        resultText = "🔍 Scam Spotter!";
-    } else {
-        resultText = "⚠️ Stay Alert!";
-    }
-
-    document.querySelector(".game-container").innerHTML = `
-    <h1>🎉 Mission Complete!</h1>
-    <h2>Your Score: ${score}/${questions.length}</h2>
-    <p>${resultText}</p>
-    <br>
-    <h3>🎁 Show this screen to claim your reward!</h3>
-    <button onclick="location.reload()">Play Again</button>
+  card.innerHTML = `
+    <div class="card-top">
+      ${item.badge ? `<div class="badge">${item.badge}</div>` : ""}
+      <img src="${item.img}" />
+    </div>
+    <div class="card-body">
+      <h3>${item.title}</h3>
+      <p>${item.desc}</p>
+    </div>
+    <div class="arrow">›</div>
   `;
-}
 
-// START
-window.onload = function() {
-    loadQuestion();
-};
+  card.onclick = () => alert(item.title);
+
+  grid.appendChild(card);
+});

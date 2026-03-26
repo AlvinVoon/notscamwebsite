@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scam Detector Game</title>
+    <link rel="stylesheet" href="scamDetector.css">
+</head>
+
+<body>
+<nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>17stepsforward</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="scamDetector.html">Scam Detector Game</a></li>
+                <li><a href="whatsup.html">Fraud Message Simulator</a></li>
+                <li><a href="actfast.html">Got scam?</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+
+        <!-- Character -->
+        <div class="character">
+            🕵️ Agent Byte:
+            <span id="message">Find the fake website!</span>
+        </div>
+
+        <!-- Timer -->
+        <div class="timer-bar">
+            <div id="timer"></div>
+        </div>
+
+        <!-- Question -->
+        <h2 id="question">Which website is fake?</h2>
+
+        <!-- Options -->
+        <div class="options">
+            <div class="card" onclick="selectAnswer(0)" id="option0"></div>
+            <div class="card" onclick="selectAnswer(1)" id="option1"></div>
+            <div class="card" onclick="selectAnswer(2)" id="option2"></div>
+        </div>
+
+        <!-- Score -->
+        <div class="score">
+            Score: <span id="score">0</span>
+        </div>
+
+        <div class="close-btn">Start</div>
+
+    </div>
+
+    <script src="scamDetector.js" defer></script>
+</body>
+
+</html>

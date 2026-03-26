@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>What To Do After Scam</title>
+    <link rel="stylesheet" href="actfast.css">
+</head>
+
+<body>
+<nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>17stepsforward</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="scamDetector.html">Scam Detector Game</a></li>
+                <li><a href="whatsup.html">Fraud Message Simulator</a></li>
+                <li><a href="actfast.html">Got scam?</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>🚨 What To Do After Scam</h1>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div id="progressBar"></div>
+        </div>
+
+        <div id="stepBox">
+            <h2 id="stepTitle"></h2>
+            <p id="stepContent"></p>
+            <div id="extraContent"></div>
+
+            <!-- CALL BUTTON -->
+            <a id="callBtn" href="#" class="call-btn" style="display:none;">
+      📞 CALL NOW
+    </a>
+
+            <label class="checkbox">
+      <input type="checkbox" id="doneCheck"> I have completed this step
+      <span class="checkmark"></span>
+    </label>
+
+            <button onclick="nextStep()">Next Step →</button>
+        </div>
+    </div>
+
+    <script src="actfast.js"></script>
+</body>
+
+</html>

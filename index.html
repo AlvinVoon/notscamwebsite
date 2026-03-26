@@ -1,46 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Scam Detector Game</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeChat - Protect Yourself from Scams</title>
+    <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-
-    <div class="game-container">
-
-        <!-- Character -->
-        <div class="character">
-            🕵️ Agent Byte:
-            <span id="message">Find the fake website!</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>17stepsforward</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="scamDetector.html">Scam Detector Game</a></li>
+                <li><a href="whatsup.html">Fraud Message Simulator</a></li>
+                <li><a href="actfast.html">Got scam?</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+    </nav>
+            <section class="hero">
+            <div class="hero-content">
+            <h3>THE DIGITAL DEFENSE INITIATIVE</h3>
+            <p>The Architect of Your Digital <span style="font-style:italic; color: #949494;">Fortress.</span></p>
+            <h2>Learn more about types of scams and preventive measures now</h2>
+            </div>
+        </section>
 
-        <!-- Timer -->
-        <div class="timer-bar">
-            <div id="timer"></div>
-        </div>
+<div class="grid" id="grid"></div>
 
-        <!-- Question -->
-        <h2 id="question">Which website is fake?</h2>
+<section class="security-section">
+    <h1>5 Security Measures for Your Safety</h1>
+  <p class="subtitle">This is how banks in Malaysia are working closely with Bank Negara Malaysia (BNM)<br>to combat financial scams together.</p>
 
-        <!-- Options -->
-        <div class="options">
-            <div class="card" onclick="selectAnswer(0)" id="option0"></div>
-            <div class="card" onclick="selectAnswer(1)" id="option1"></div>
-            <div class="card" onclick="selectAnswer(2)" id="option2"></div>
-        </div>
+  <div class="security-grid">
 
-        <!-- Score -->
-        <div class="score">
-            Score: <span id="score">0</span>
-        </div>
-
-
+    <div class="sec-card">
+        <div class="top">
+      <div class="icon">🔍</div>
+      <h3>Strengthening banks' fraud detection rules.</h3>
+      </div>
+      <div class="bottom">
+      <div class="line"></div>
+      <p>To prevent potential scam transactions and promptly notify customers for verification.</p>
+      </div>
     </div>
 
-    <script src="script.js" defer></script>
-</body>
+    <div class="sec-card">
+        <div class="top">
+      <div class="icon">🎧</div>
+      <h3>Providing a 24/7 customer support hotline.</h3>
+      </div>
+      <div class="bottom">
+      <div class="line"></div>
+      <p>To ensure customers can easily contact banks to report scam incidents.</p>
+    </div>
+    </div>
 
+    <div class="sec-card">
+        <div class="top">
+      <div class="icon">📱</div>
+      <h3>Allowing registration for only a single mobile or secure device.</h3>
+      </div>
+      <div class="bottom">
+      <div class="line"></div>
+      <p>To enable genuine transactions by the account holder and stop scammers from using a different device.</p>
+      </div>
+    </div>
+
+    <div class="sec-card">
+        <div class="top">
+      <div class="icon">🛡️</div>
+      <h3>Adding verification and a cooling-off period for first-time enrolment of e-banking services.</h3>
+     </div>
+      <div class="bottom">
+      <div class="line"></div>
+      <p>To restrict online banking transactions for customers during this cooling-off period.</p>
+    </div>
+    </div>
+
+    <div class="sec-card">
+        <div class="top">
+      <div class="icon">🔐</div>
+      <h3>Migrating from SMS one-time passwords (OTP) to a more secure authentication method.</h3>
+      </div>
+      <div class="bottom">
+      <div class="line"></div>
+      <p>To stop scammers from obtaining victims' OTPs via phishing malware.</p>
+        </div>
+    </div>
+
+  </div>
+</section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SafeChat</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Research</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 17stepsforward. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
