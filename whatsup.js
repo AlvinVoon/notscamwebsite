@@ -1,6 +1,6 @@
 //import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.0.0-next.8';
 
-let numberOfScammers= 10;
+let numberOfScammers= 9;
 let numberOfWrongIdentified = 0;
 // Create a text generation pipeline
 //const generator = await pipeline(
@@ -223,18 +223,6 @@ const chats = [
     messages: [
       { text: "Basketball later?", sent: false },
       { text: "Sure!", sent: true }
-    ]
-  },
-  {
-    name: "New Phone (Mom?)",
-    msg: "Important",
-    time: "5 days ago",
-    unread: 3,
-    scammer: 1,
-    messages: [
-      { text: "Hi, this is mom. I changed my number.", sent: false },
-      { text: "Can you transfer me RM500 urgently?", sent: false },
-      { text: "My bank app not working", sent: false }
     ]
   }
 ];
